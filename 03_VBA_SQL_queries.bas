@@ -18,7 +18,7 @@ rs.Close
 Exit Sub
 
 err_msg:
-MsgBox "Unable to find the table."
+MsgBox "Unable to find the table / wrong SQL query."
 
 End Sub
 
@@ -39,6 +39,27 @@ rs.Close
 Exit Sub
 
 err_msg:
-MsgBox "Unable to find the table."
+MsgBox "Unable to find the table / wrong SQL query."
+
+End Sub
+    
+'____________________________________________________________________________________
+Sub limited_query_order_ascending()
+
+Dim rs As New ADODB.Recordset
+
+On Error GoTo err_msg
+
+rs.Open "SELECT part_number, part_description FROM tbl_parts ORDER BY part_description", CurrentProject.Connection
+
+Debug.Print rs.GetString
+' The the value for the corresponding column of the record is displayed in the console.
+
+rs.Close
+
+Exit Sub
+
+err_msg:
+MsgBox "Unable to find the table / wrong SQL query."
 
 End Sub
