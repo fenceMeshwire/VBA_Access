@@ -53,7 +53,7 @@ On Error GoTo err_msg
 rs.Open "SELECT part_number, part_description FROM tbl_parts ORDER BY part_description", CurrentProject.Connection
 
 Debug.Print rs.GetString
-' The the value for the corresponding column of the record is displayed in the console.
+' The the values of the corresponding columns of the record is displayed in the console.
 
 rs.Close
 
