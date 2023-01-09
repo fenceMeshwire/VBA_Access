@@ -63,3 +63,26 @@ err_msg:
 MsgBox "Unable to find the table / wrong SQL query."
 
 End Sub
+
+'____________________________________________________________________________________
+Sub select_records_with_parameter()
+
+Dim cn As New ADODB.Connection
+Dim rs As New ADODB.Recordset
+
+Set cn = CurrentProject.Connection
+Set rs = New ADODB.Recordset
+
+rs.Open "SELECT * FROM tbl_parts WHERE (part_description = 'washer')", cn, adOpenKeyset, adLockOptimistic
+
+Do Until rs.EOF
+  Debug.Print rs!part_number
+  rs.MoveNext
+Loop
+
+rs.Close
+
+Set rs = Nothing
+Set cn = Nothing
+
+End Sub
