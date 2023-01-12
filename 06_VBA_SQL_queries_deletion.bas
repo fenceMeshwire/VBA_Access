@@ -4,7 +4,7 @@ Option Explicit
 '____________________________________________________________________________________
 Sub delete_records()
 
-Dim strStatement$
+Dim strStatement$ ' String variable, ending "$"
 
 strStatement$ = "DELETE * FROM tbl_parts WHERE (name = 'washer')"
 
